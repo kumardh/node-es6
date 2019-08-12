@@ -1,4 +1,4 @@
-# Javascript Vs Node Js
+## Javascript Vs Node Js
 JavaScript is a simple programming language which runs in any browser JavaScript Engine. Whereas Node JS is an interpreter or running environment for a JavaScript programming language which holds a lot of excesses require libraries which can easily be accessed from JavaScript programming for better use.
 
 JavaScript is normally used for any client-side activity for one web application. Activity can be addressing business validation or dynamic page display in some schedule time interval or basic Ajax call kind of task. Those are used on a maximum time for any web application. Whereas Node JS mainly used for accessing or running any operating system for non-blocking operation. An operation like create or executing shell script, or getting some specific hardware related information on one call or installed certificate details in the system or lot of define task which are non-blocking on an operating system.
@@ -9,14 +9,16 @@ JavaScript is normally following Java Programming language standard. There may h
 
 For accessing any operating system specific non-blocking task JavaScript has some specific object but all of them are operating system specific. An example is ActiveX Control which is only running in Windows. But Node JS is given utility to run some operating system specific non-blocking tasks from any JavaScript programming. It doesn’t have any operating system specific constant. Node JS is very much familiar to create a specific binding with the file system, and also allowing developer for reading or sometimes write on disk.
 
-# What you should know about Node Js
+## What you should know about Node Js
 
 **npm global vs local dependencies**
+
 Globally installed packages/dependencies are stored in <user-directory>/npm directory. Such dependencies can be used in CLI (Command Line Interface) function of any node.js but can not be imported using require() in Node application directly. To install a Node project globally use -g flag.
 
 By default, npm installs any dependency in the local mode. Here local mode refers to the package installation in node_modules directory lying in the folder where Node application is present. Locally deployed packages are accessible via require(). To install a Node project locally following is the syntax.
 	
-**global objects in Node**	
+**global objects in Node**
+
 Node.js global objects are global in nature and they are available in all modules. We do not need to include these objects in our application, rather we can use them directly. These objects are modules, functions, strings and object itself as explained below.
 	
 	__filename
@@ -27,6 +29,7 @@ Node.js global objects are global in nature and they are available in all module
 	process
 
 **Explain How Do We Decide, When To Use Node.Js And When Not To Use It?**
+
 It’s ideal to use Node.js for developing streaming or event-based real-time applications that require less CPU usage such as.
 
 Chat applications.
@@ -46,9 +49,11 @@ To summarize, it’s good to use Node.js, when you need high levels of concurren
 Last but not the least, since Node.js uses JavaScript internally, so it fits best for building client-side applications that also use JavaScript.
 
 **When To Not Use Node.Js?**
+
 However, we can use Node.js for a variety of applications. But it is a single threaded framework, so we should not use it for cases where the application requires long processing time. If the server is doing some calculation, it won’t be able to process any other requests. Hence, Node.js is best when processing needs less dedicated CPU time.
 
 **setTimeout with 0 delay vs setImmediate**
+
 setTimeout(fn, delay) calls the given callback fn after the given delay has ellapsed (in milliseconds). However, the callback is not executed immediately at this time, but added to the function queue so that it is executed as soon as possible, after all the currently executing and currently queued event handlers have completed. 
 
 setImmediate(fn) achieves the same effect, except that it doesn’t use the queue of functions. Instead, it checks the queue of I/O event handlers. If all I/O events in the current snapshot are processed, it executes the callback. It queues them immediately after the last I/O handler, somewhat like process.nextTick. This is faster than setTimeout(fn, 0).
@@ -85,11 +90,13 @@ One should use Promise. Promises allow additional desirable behavior such as err
 But the best solution is to use async/await—an approach that leverages Promises and finally makes it easy to flatten the so-called “pyramid of doom” shown above.
 
 **How node.js handle child thread?**
+
 Node.js, in its essence, is a single thread process. It does not expose child threads and thread management methods to the developer. Technically, Node.js does spawn child threads for certain tasks such as asynchronous I/O, but these run behind the scenes and do not execute any application JavaScript code, nor block the main event loop.
 
 If threading support is desired in a Node.js application, there are tools available to enable it, such as the ChildProcess module. In fact, Node.js 12 has experimental support for threads.
 
 **How to handle unhandled exception?**
+
 Unhandled exceptions in Node.js can be caught at the Process level by attaching a handler for uncaughtException event.
 ```
 process.on('uncaughtException', (err) => {
@@ -103,22 +110,27 @@ The preferred way is to add another layer between your application and the Node.
 However, domains have been pending deprecation for a few years—since Node.js 4. It’s possible a more future-proof approach would be to use zones.
 
 **How does Node.js support multi-processor platform?**
+
 Since Node.js is by default a single thread application, it will run on a single processor core and will not take full advantage of multiple core resources. However, Node.js provides support for deployment on multiple-core systems, to take greater advantage of the hardware. The Cluster module is one of the core Node.js modules and it allows running multiple Node.js worker processes that will share the same port.
 
 **What is typically the first argument passed to a Node.js callback handler?**
+
 Error object. If there is no error, the argument will be null or undefined.
 
 **Time taken by Google Chrome is considerably more than the time required to run it in Node.js when var is used in a loop. Explain why this is so, even though both use the v8 JavaScript Engine?**
+
 Chrome, declaring the variable i outside of any function’s scope makes it global and therefore binds it as a property of the window object. As a result, running this code in a web browser requires repeatedly resolving the property i within the heavily populated window namespace in each iteration of the for loop. 
 
 In Node.js, however, declaring any variable outside of any function’s scope binds it only to the module’s own scope (not the window object) which therefore makes it much easier and faster to resolve.
 
 **What is REPL? What purpose it is used for?** 
+
 REPL stands for (READ, EVAL, PRINT, LOOP). Node js comes with bundled REPL environment. This allows for the easy creation of CLI (Command Line Interface) applications.
 
-# What you must know about Javascript
+## What you must know about Javascript
 	
 **Variable scoping**
+
 When we start writing code in a file, we are automatically placed in the global scope of that file. When we declare variables in the file, we place them in the global scope. Functions have their own local scope available to them. This local scope can be thought of as being nested inside the global scope. We can look at the current scope level and outwards, but not inwards.
 There’s a mechanism behind variable lookup in JavaScript. When we try to access a variable, the JavasScript engine first looks at the current scope level. If the variable isn’t found, it will jump upwards into the parent scope and look there, and keep going upwards and out until it either finds the variable or reaches the global scope. If it’s not in the global scope, we get a reference error.
 Functions can access and change variables in their outer scope. When we omit var, the JavaScript engine will not create a new instance of a variable in the local scope. Instead, it will first attempt to find the variable we are changing. If it’s found in the local scope, it’ll change the variable in the local scope. If it’s not, it’ll go up continuously until it finds it.
@@ -151,9 +163,11 @@ console.log(y); // -> ?
 Answer 20,xyz,5, xyz
 ```
 **this kewword**
+
 When used with new Constructor function is executed as empty object {}.when dot notation is used with object, this represents the object. when used with call() or apply(), this represent the object passed as argument.
 
 **Another important items in JavaScript**
+
 	Static members
 	prototype
 	Inheritance
