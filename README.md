@@ -175,3 +175,19 @@ When used with new Constructor function is executed as empty object {}.when dot 
 	privileged methods
 	refelxion in JavaScript
 	hasOwnProperty
+	
+**Best pactice and commly used terms in Javascript community**
+
+1. For accesing object property you can either use **Dot Natation** or **Bracket Notation**. Use Bracket notation when the proprty name is not know in advance.
+2. Value type - String,Number,Boolean, Symbols,undefined and null3.
+3. Reference type - Object, Array, Function.
+4. null is typeof Object.
+5. When you declare functions, then the input members are called **Parameters** but when you call function and supply those values are called **Arguements**.
+6. Code Spagati - when changing a function breaks multiple places, like in Procedural programming. Use OOP where legit.
+7. A function without parameters are considered best functions.
+8. Use Object literal when no behavior is attached.
+9. Every object has a constructor property which is used to create that object.
+10. Instead of call,apply method of a constructor function use new keword.
+11. Object.Keys(obj) returns all the keys of an object.
+12. In JavaScript, if you declare a function within another function, then the local variables of the outer function can remain accessible after returning from it.
+
