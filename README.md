@@ -127,6 +127,34 @@ In Node.js, however, declaring any variable outside of any function’s scope bi
 
 REPL stands for (READ, EVAL, PRINT, LOOP). Node js comes with bundled REPL environment. This allows for the easy creation of CLI (Command Line Interface) applications.
 
+**Understanding default vs name export** 
+
+Let's myModule.js is below -
+
+```
+module.exports = function() {console.log("module/default export.")}
+module.exports.myFunc = function() {console.log("my function.")}
+module.exports.myConst = "my constant.";
+module.exports.MyObject = { abc: "my constant."};
+```
+
+Now if you include this in app.js 
+
+```
+const my = require("./myModule.js");
+console.log(my);
+```
+
+You get below result. The first member of the my object is default export followed by named exports.
+{ [Function]
+  myFunc: [Function],
+  myConst: 'my constant.',
+  MyObject: { abc: 'my constant.' } }
+
+**Note**
+
+I have added vsCodeOpenFolder.reg file. This will allow you to show option "open with Visual Studio Code" when you Right click on Windows folder.
+
 ## What you must know about Javascript
 	
 **Variable scoping**
